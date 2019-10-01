@@ -17,7 +17,7 @@ To create an Anaconda environment, run the following commands in Ubuntu 18.04:
 ```
 $ conda create -n darts python=3.5.5
 $ conda activate darts
-$ conda install pytorch=0.3.1 torchvision=0.2.0 cuda90
+(darts) $ conda install pytorch=0.3.1 torchvision=0.2.0 cuda90
 ```
 ## Presentations
 
