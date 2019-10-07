@@ -11,3 +11,9 @@ python3 -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 
 ./darts_ref/run_darts_inference.sh
 ```
+
+Mount current host directory as `host_files` in container:
+
+```bash
+docker run --rm -it --gpus all -v $(pwd):/workdir/host_files darts-pytorch
+```
