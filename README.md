@@ -3,6 +3,14 @@ Harvard IACS Data Science Capstone: Neural Architecture Search (NAS) with Google
 
 ## Python Environment
 
+### Use Nvidia-Docker
+
+The DARTS code requires a specific version of PyTorch and CUDA, which could be difficult to install on some machines. Thus we recommend using [Nvidia-Docker](https://github.com/NVIDIA/nvidia-docker) to easily replicate the same environment on different platforms (multiple cloud vendors and local servers). Please follow [docker/install-nvidia-docker](./docker/install-nvidia-docker) to install Nvidia-Docker on a cloud GPU instance, and follow [docker/darts-pytorch-image](./docker/darts-pytorch-image) to use the our `darts-pytorch` image.
+
+Alternatively, you can install the libraries without Docker, as shown below.
+
+### Install on native environment
+
 We start with the original DARTS code available here: https://github.com/quark0/darts
 
 This code has been verified on the following Python environment:
@@ -34,7 +42,7 @@ $ conda activate darts
 (darts) $ python train_search.py --dataset mnist --save MNIST --gpu 2
 (darts) $ python train_search.py --dataset fashion-mnist --save FASHION_MNIST --gpu 3
 ```
-The first command runs an architecture search on the CIFAR-10 dataset.  It saves the results into a directory named e.g. 'search-CIFAR-10-2019104-141028'.  The CIFAR-10 is the --save argument; the rest is YYYYMMDD-HHMMSS.  The search uses GPU device 1. 
+The first command runs an architecture search on the CIFAR-10 dataset.  It saves the results into a directory named e.g. 'search-CIFAR-10-2019104-141028'.  The CIFAR-10 is the --save argument; the rest is YYYYMMDD-HHMMSS.  The search uses GPU device 1.
 The second command runs an architecture search on the MNIST digits dataset on GPU device  2.
 The third command runs an architecture search on the FASHION-MNIST dataset on GPU device 3.
 These searches took approximately 17 hours on a high end NVIDIA RTX 2080 Ti GPU.  The authors reported architecture searches took slightly longer (about one day) on NVIDIA GTX 1080 Ti GPUs, which were high end GPUs a few years ago.
@@ -43,7 +51,7 @@ There are two outputs with the results of the search in each directory.  The fir
 
 ## Training a Network with the Discovered Architecture
 
-Once the best architecture is discovered, it needs to be made available for training a full network.  Currently the process for doing this is a bit manual.  Take the MNIST training as an example.  Go into the directory e.g. darts/cnn/search-CIFAR-10-20191004-160833.  In this directory, open up log.txt.  At the very bottom of this file (line 1203) you will see that the final validation accuracy is 99.07%, which is promising.  A few lines up, on line 1181, is the final extract with the genotype.  After the timestamp, this line reads 
+Once the best architecture is discovered, it needs to be made available for training a full network.  Currently the process for doing this is a bit manual.  Take the MNIST training as an example.  Go into the directory e.g. darts/cnn/search-CIFAR-10-20191004-160833.  In this directory, open up log.txt.  At the very bottom of this file (line 1203) you will see that the final validation accuracy is 99.07%, which is promising.  A few lines up, on line 1181, is the final extract with the genotype.  After the timestamp, this line reads
 
 `genotype = Genotype(normal=[('max_pool_3x3', 0), ('skip_connect', 1), ('max_pool_3x3', 0), ('sep_conv_3x3', 2), ('sep_conv_3x3', 3), ('sep_conv_3x3', 2), ('sep_conv_5x5', 4), ('sep_conv_3x3', 3)], normal_concat=range(2, 6), reduce=[('avg_pool_3x3', 0), ('avg_pool_3x3', 1), ('avg_pool_3x3', 0), ('avg_pool_3x3', 1), ('avg_pool_3x3', 0), ('dil_conv_5x5', 3), ('avg_pool_3x3', 0), ('dil_conv_5x5', 4)], reduce_concat=range(2, 6))`
 
