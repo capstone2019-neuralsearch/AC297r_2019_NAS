@@ -9,5 +9,5 @@ docker run --rm -it --gpus all darts-pytorch  # just remove  `--gpus all` when u
 python3 -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 # should print (0.3.1, True)
 
-./run_darts_inference.sh
+./darts_ref/run_darts_inference.sh
 ```
