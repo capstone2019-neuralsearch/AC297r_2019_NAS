@@ -90,6 +90,15 @@ Our MNIST model has a classification accuracy of 99.28% on test data.
 
 Our FASHION-MNIST model has a classification accuracy of 99.29% on test data.
 
+## Graphene Kirigami Dataset
+
+To download the processed dataset our code loads for the Graphene Kirigami problem, run:
+
+```bash
+wget https://capstone2019-google.s3.amazonaws.com/graphene_processed.nc -P /path/to/save
+python train_search.py --data /path/to/save --dataset graphene
+```
+
 ## Presentations
 
 Lightning Talk 1: [link](https://docs.google.com/presentation/d/e/2PACX-1vQ2CSXrC6_XlA7eqp5wvdu1_ysZBthoF0uy5pUgR56WguDSWM_7ye34qAEf71YOFTLxAHyNtRl4nt9P/pub?start=false&loop=false&delayms=30000)
