@@ -10,6 +10,7 @@ RUN apt-get update && \
 RUN python3 -m pip install --upgrade pip
 
 RUN pip3 install --no-cache-dir torch==0.3.1 torchvision==0.2.0
+RUN pip3 install --no-cache-dir xarray sklearn pytest
 
 ARG DARTS_WORKDIR='/darts_workdir'
 WORKDIR $DARTS_WORKDIR
