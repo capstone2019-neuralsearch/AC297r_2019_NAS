@@ -19,7 +19,7 @@ This code has been verified on the following Python environment:
 * torch = 0.3.1
 * torchvision = 0.2.0
 * CUDA = 10.0
-* operating system: Ubuntu Linux (18.04 LTS recommended)
+* operating system: Ubuntu Linux 18.04 LTS
 
 To create an Anaconda environment, run the following commands in Ubuntu 18.04:
 ```
@@ -31,6 +31,12 @@ $ conda activate darts
 ```
 This looks a bit odd.  We are mixing Anaconda and pip, which is not usually recommended.  Here we need a slightly unusual configuration.  The code is running on a GPU server with newer GPU cards that seem to require CUDA version 10.0 to run.  But the old version of Pytorch has a requirement that CUDA = 9.0.  We work around this by first installing CUDA 10.0 with Anaconda, then using a lower level pip installation of torch and torchvision.  It turns out that CUDA 10.0 is backward compatible enough with CUDA 9.0 that the wheel for torch still works.
 
+A few other Anaconda packages must also be installed.  These are all routine.
+
+```
+(darts) $ conda install xarray scipy scikit-learn boto3
+```
+
 ## Running Architecture Search
 
 The first step in building a new model is to run the architecture search with DARTS.
@@ -41,6 +47,7 @@ $ conda activate darts
 (darts) $ python train_search.py --dataset cifar-10 --save CIFAR-10 --gpu 1
 (darts) $ python train_search.py --dataset mnist --save MNIST --gpu 2
 (darts) $ python train_search.py --dataset fashion-mnist --save FASHION_MNIST --gpu 3
+(darts) $ python train_search.py --dataset graphene --save GRAPHENE --gpu 1
 ```
 The first command runs an architecture search on the CIFAR-10 dataset.  It saves the results into a directory named e.g. 'search-CIFAR-10-2019104-141028'.  The CIFAR-10 is the --save argument; the rest is YYYYMMDD-HHMMSS.  The search uses GPU device 1.
 The second command runs an architecture search on the MNIST digits dataset on GPU device  2.

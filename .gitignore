@@ -1,3 +1,11 @@
+# MSE 2010-10-07: Custom ignores for this project
+# pytorch weight files (large binaries)
+*.pt
+# tar / gzip archives (large binaries)
+*.tar.gz
+# data directories (should be recreated locally)
+/data
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
