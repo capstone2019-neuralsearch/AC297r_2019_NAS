@@ -9,7 +9,9 @@ RUN apt-get update && \
 # https://github.com/pypa/pip/issues/5599
 RUN python3 -m pip install --upgrade pip
 
-RUN pip3 install --no-cache-dir torch==0.3.1 torchvision==0.2.0
+RUN pip3 install --no-cache-dir \
+    http://download.pytorch.org/whl/cu90/torch-0.3.1-cp36-cp36m-linux_x86_64.whl \
+    torchvision==0.2.0
 RUN pip3 install --no-cache-dir xarray sklearn boto3 pytest
 
 ARG WORKDIR='/workdir'
