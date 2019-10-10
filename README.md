@@ -1,6 +1,10 @@
 # AC297r_2019_NAS
 Harvard IACS Data Science Capstone: Neural Architecture Search (NAS) with Google
 
+## DARTS Code
+
+The [DARTS code](https://github.com/capstone2019-neuralsearch/darts) we are using is a fork of the original code by Hanxiao Liu (quark0), which we have extended to fit our needs.
+
 ## Python Environment
 
 ### Use Nvidia-Docker
