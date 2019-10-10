@@ -52,11 +52,13 @@ $ conda activate darts
 (darts) $ python train_search.py --dataset cifar-10 --save CIFAR-10 --gpu 1
 (darts) $ python train_search.py --dataset mnist --save MNIST --gpu 2
 (darts) $ python train_search.py --dataset fashion-mnist --save FASHION_MNIST --gpu 3
-(darts) $ python train_search.py --dataset graphene --save GRAPHENE --gpu 1
+(darts) $ python train_search.py --dataset graphene --save GRAPHENE --batch_size 24 --gpu 1
 ```
 The first command runs an architecture search on the CIFAR-10 dataset.  It saves the results into a directory named e.g. 'search-CIFAR-10-2019104-141028'.  The CIFAR-10 is the --save argument; the rest is YYYYMMDD-HHMMSS.  The search uses GPU device 1.
 The second command runs an architecture search on the MNIST digits dataset on GPU device  2.
 The third command runs an architecture search on the FASHION-MNIST dataset on GPU device 3.
+The fourth command runs an architecture search on the graphene kirigami dataset on GPU device 1.  The batch size must be manually reduced from the default of 64 because the input image size of 30x80 is larger than on the first 3 data sets and otherwise the GPU runs out of memory.
+
 These searches took approximately 17 hours on a high end NVIDIA RTX 2080 Ti GPU.  The authors reported architecture searches took slightly longer (about one day) on NVIDIA GTX 1080 Ti GPUs, which were high end GPUs a few years ago.
 
 There are two outputs with the results of the search in each directory.  The first is PyTorch weights file names weights.pt.  The second is a log called log.txt.  The log includes a history of the training and validation loss on the best cell.  It also periodically prints out a grid with the current "attention" weights on the different possible cells.  Most importantly, it periodically logs a line of Python that can be used to define a genotype in the file genotypes.py.  We will need this in the next step!
@@ -75,6 +77,7 @@ $ conda activate darts
 (darts) $ python train.py --dataset cifar-10 --arch CIFAR_10 --save CIFAR-10 --gpu 1
 (darts) $ python train.py --dataset mnist --arch MNIST --save MNIST --gpu 2
 (darts) $ python train.py --dataset fashion-mnist --arch FASHION_MNIST --save FASHION-MNIST --gpu 3
+(darts) $ python train.py --dataset graphene --arch GRAPHENE --save GRAPHENE --batch_size 32 --gpu 1
 ```
 
 The second command trains a full network on the MNIST dataset.  It uses the architecture (Genotype instance) named MNIST in the file genotypes.py.  This is the variable we copy / pasted from the log file in the architecture search to the bottom of genotypes.py.  The `--save` argument puts the output into a directory named e.g. `eval-MNIST-20191005-150239`.  The `--gpu 2` argument runs the job on GPU 2.  (You can run as many parallel jobs as you have GPUs on your machine; the training in GPU bound.)
