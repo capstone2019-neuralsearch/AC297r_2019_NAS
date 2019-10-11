@@ -78,11 +78,14 @@ $ conda activate darts
 (darts) $ python train.py --dataset mnist --arch MNIST --save MNIST --gpu 2
 (darts) $ python train.py --dataset fashion-mnist --arch FASHION_MNIST --save FASHION-MNIST --gpu 3
 (darts) $ python train.py --dataset graphene --arch GRAPHENE --save GRAPHENE --batch_size 32 --gpu 1
+(darts) $ python train.py --dataset graphene --arch GRAPHENE --save GRAPHENE --layers 8 --gpu 1
 ```
 
 The second command trains a full network on the MNIST dataset.  It uses the architecture (Genotype instance) named MNIST in the file genotypes.py.  This is the variable we copy / pasted from the log file in the architecture search to the bottom of genotypes.py.  The `--save` argument puts the output into a directory named e.g. `eval-MNIST-20191005-150239`.  The `--gpu 2` argument runs the job on GPU 2.  (You can run as many parallel jobs as you have GPUs on your machine; the training in GPU bound.)
 
 Training the full network for CIFAR-10, MNIST, and FASHION-MNIST each took approximately 26 hours on an NVIDIA RTX 2080 Ti GPU.
+
+The first attempt to train the graphene model uses the default number of layers, 20.  This led to an overfit model with negative R2 on both train and validation data.  The second call uses 8 layers, the same as was used in the architecture search.
 
 The outputs of this training process are the same as for architecture search.  In the eval directory there will be two output files: a log file called `log.txt` and a PyTorch model weights file called `weights.pt`.  For our project, we created a directory called `models` under the top level directory `darts` (`darts/models`) where we could save all of our trained models.  Copy / paste `models.pt` from the MNIST training to this directory with the file name `mnist_model.pt`.  We download the original model the authors trained on CIFAR-10, and saved it here as `cifar10_model_original.pt`.  We compare it to the new version we trained from scratch called `cifar10_model.pt`.
 
@@ -107,11 +110,14 @@ $ cd darts/cnn
 $ conda activate darts
 (darts) $ python test.py --dataset mnist --arch MNIST --model_path ../models/mnist_model.pt
 (darts) $ python test.py --dataset fashion-mnist --arch FASHION_MNIST --model_path ../models/fashion_mnist_model.pt
+(darts) $ python test.py --dataset graphene --arch GRAPHENE --layers 8 --model_path ../models/graphene_model.pt 
 ```
 
 Our MNIST model has a classification accuracy of 99.28% on test data.
 
-Our FASHION-MNIST model has a classification accuracy of 99.29% on test data.
+Our fashion-mnist model has a classification accuracy of 99.29% on test data.
+
+Our graphene model has a regression R<sup>2</sup> of 0.9085.
 
 ## Graphene Kirigami Dataset
 
