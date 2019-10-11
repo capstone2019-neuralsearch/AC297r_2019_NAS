@@ -5,6 +5,8 @@
 *.tar.gz
 # data directories (should be recreated locally)
 /data
+# scripts directories under experiments
+/experiments/*/scripts
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
