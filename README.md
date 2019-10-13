@@ -38,8 +38,7 @@ This looks a bit odd.  We are mixing Anaconda and pip, which is not usually reco
 A few other Anaconda packages must also be installed.  These are all routine.
 
 ```
-(darts) $ conda install scipy scikit-learn graphviz xarray boto3
-(darts) $ conda install graphviz python-graphviz pydot
+(darts) $ conda install scipy scikit-learn graphviz xarray boto3 python-graphviz pydot
 ```
 
 ## Running Architecture Search
