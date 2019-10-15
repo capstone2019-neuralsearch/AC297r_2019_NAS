@@ -1,6 +1,8 @@
 # MSE 2010-10-07: Custom ignores for this project
 # pytorch weight files (large binaries)
 *.pt
+# numpy weight files
+*.npy
 # tar / gzip archives (large binaries)
 *.tar.gz
 # data directories (should be recreated locally)

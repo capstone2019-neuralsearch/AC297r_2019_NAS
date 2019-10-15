@@ -131,5 +131,7 @@ python train_search.py --data /path/to/save --dataset graphene
 
 Lightning Talk 1: [link](https://docs.google.com/presentation/d/e/2PACX-1vQ2CSXrC6_XlA7eqp5wvdu1_ysZBthoF0uy5pUgR56WguDSWM_7ye34qAEf71YOFTLxAHyNtRl4nt9P/pub?start=false&loop=false&delayms=30000)
 
-Lightning Talk 2: https://docs.google.com/presentation/d/101dRBnm_5-AD_yxL1krIotfki2spr-QjvJtJrKkLpgY/edit#slide=id.g61d1bae56f_0_547
+Milestone 1: https://docs.google.com/presentation/d/101dRBnm_5-AD_yxL1krIotfki2spr-QjvJtJrKkLpgY/edit#slide=id.g61d1bae56f_0_547
+
+Milestone 2:  https://docs.google.com/presentation/d/1ETMiDSIVxW6pK-f69YLRunq9HoD08kR7TJadng80n2w/edit?ts=5da3d4db#slide=id.g6230f468c2_0_13 
 
