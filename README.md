@@ -15,7 +15,9 @@ Alternatively, you can install the libraries without Docker, as shown below.
 
 ### Install on native environment
 
-We start with our fork of the DARTS code: https://github.com/capstone2019-neuralsearch/darts
+**TLDR:** run `$ conda env create -f environment.yml`
+
+Read below for an in-depth explanation of the requirements.
 
 This code has been verified on the following Python environment:
 
@@ -41,7 +43,15 @@ A few other Anaconda packages must also be installed.  These are all routine.
 (darts) $ conda install scipy scikit-learn graphviz xarray boto3 python-graphviz pydot
 ```
 
+**Alternatively:** simply 
+
 ## Running Architecture Search
+
+We start by cloning our fork of the DARTS code: https://github.com/capstone2019-neuralsearch/darts
+
+```
+$ git clone git@github.com:capstone2019-neuralsearch/darts.git
+```
 
 The first step in building a new model is to run the architecture search with DARTS.
 
