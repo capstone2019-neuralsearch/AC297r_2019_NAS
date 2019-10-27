@@ -15,9 +15,13 @@ Alternatively, you can install the libraries without Docker, as shown below.
 
 ### Install on native environment
 
-**TLDR:** run `$ conda env create -f environment.yml`
+Simply run the command below to create an envionment from the provided YAML file.
 
-Read below for an in-depth explanation of the requirements.
+```
+$ conda env create -f environment.yml
+```
+
+**Optional:** continue reading for an in-depth explanation of the requirements.
 
 This code has been verified on the following Python environment:
 
@@ -42,8 +46,6 @@ A few other Anaconda packages must also be installed.  These are all routine.
 ```
 (darts) $ conda install scipy scikit-learn graphviz xarray boto3 python-graphviz pydot
 ```
-
-**Alternatively:** simply 
 
 ## Running Architecture Search
 
