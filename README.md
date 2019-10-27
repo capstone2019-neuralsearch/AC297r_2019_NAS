@@ -15,7 +15,7 @@ Alternatively, you can install the libraries without Docker, as shown below.
 
 ### Install on native environment
 
-We start with the original DARTS code available here: https://github.com/quark0/darts
+We start with our fork of the DARTS code: https://github.com/capstone2019-neuralsearch/darts
 
 This code has been verified on the following Python environment:
 
