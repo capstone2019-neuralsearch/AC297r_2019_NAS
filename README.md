@@ -15,14 +15,6 @@ Alternatively, you can install the libraries without Docker, as shown below.
 
 ### Install on native environment
 
-Simply run the command below to create an envionment from the provided YAML file.
-
-```
-$ conda env create -f environment.yml
-```
-
-**Optional:** continue reading for an in-depth explanation of the requirements.
-
 This code has been verified on the following Python environment:
 
 * Python = 3.6 (version 3.7 causes syntax error due to ``async`` keyword)
