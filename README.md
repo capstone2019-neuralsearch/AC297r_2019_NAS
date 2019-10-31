@@ -39,6 +39,18 @@ A few other Anaconda packages must also be installed.  These are all routine.
 (darts) $ conda install scipy scikit-learn graphviz xarray boto3 python-graphviz pydot
 ```
 
+### Using Harvard Odyssey
+
+Load the following modules before installing:
+
+```
+module load Anaconda3/5.0.1-fasrc01
+module load cuda/10.0.130-fasrc01 cudnn/7.4.1.5_cuda10.0-fasrc01
+module load gcc/8.2.0-fasrc01
+```
+
+Then follow the instructions above to create the `conda` environment.
+
 ## Running Architecture Search
 
 We start by cloning our fork of the DARTS code: https://github.com/capstone2019-neuralsearch/darts
