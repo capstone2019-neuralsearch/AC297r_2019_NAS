@@ -51,6 +51,10 @@ module load gcc/8.2.0-fasrc01
 
 Then follow the instructions above to create the `conda` environment.
 
+Reference:
+- [GPU Computing on the FASRC cluster](https://www.rc.fas.harvard.edu/resources/documentation/gpgpu-computing-on-the-cluster/)
+- [Jupyter Notebook on Odyssey](https://www.rc.fas.harvard.edu/resources/documentation/vdi-apps/#Jupyter_Notebook)
+
 ## Running Architecture Search
 
 We start by cloning our fork of the DARTS code: https://github.com/capstone2019-neuralsearch/darts
