@@ -1,25 +1,6 @@
+python test.py --dataset mnist --arch MNIST --model_path ../models/mnist_model.pt
 10/11 02:34:43 PM gpu device = 0
 10/11 02:34:43 PM args = Namespace(arch='MNIST', auxiliary=False, batch_size=96, cutout=False, cutout_length=16, data='../data', dataset='mnist', drop_path_prob=0.2, gpu=0, init_channels=36, layers=20, model_path='weights.pt', report_freq=50, seed=0)
-108 108 36
-108 144 36
-144 144 36
-144 144 36
-144 144 36
-144 144 36
-144 144 72
-144 288 72
-288 288 72
-288 288 72
-288 288 72
-288 288 72
-288 288 72
-288 288 144
-288 576 144
-576 576 144
-576 576 144
-576 576 144
-576 576 144
-576 576 144
 10/11 02:34:51 PM param size = 3.279358MB
 10/11 02:34:53 PM train 000 7.947286e-08 100.000000 100.000000
 10/11 02:34:55 PM train 050 5.761390e-02 98.733657 99.979575
