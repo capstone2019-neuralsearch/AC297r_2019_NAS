@@ -143,7 +143,7 @@ Our graphene model has a regression R<sup>2</sup> of 0.9085.
 To download the processed dataset our code loads for the Graphene Kirigami problem, run:
 
 ```bash
-wget https://capstone2019-google.s3.amazonaws.com/graphene_processed.nc -P /path/to/save
+wget https://capstone2019-google.s3.amazonaws.com/data/graphene_processed.nc -P /path/to/save
 python train_search.py --data /path/to/save --dataset graphene
 ```
 
