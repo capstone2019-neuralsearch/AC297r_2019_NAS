@@ -9,6 +9,8 @@
 /data
 # scripts directories under experiments
 /experiments/*/scripts
+# notebooks
+/notebooks
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
