@@ -1,1 +1,1 @@
-See `submissions/midterm`. 
+AKA Milestone 3
