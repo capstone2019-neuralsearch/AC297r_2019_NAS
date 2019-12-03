@@ -108,6 +108,10 @@ The first attempt to train the graphene model uses the default number of layers,
 
 The outputs of this training process are the same as for architecture search.  In the eval directory there will be two output files: a log file called `log.txt` and a PyTorch model weights file called `weights.pt`.  For our project, we created a directory called `models` under the top level directory `darts` (`darts/models`) where we could save all of our trained models.  Copy / paste `models.pt` from the MNIST training to this directory with the file name `mnist_model.pt`.  We download the original model the authors trained on CIFAR-10, and saved it here as `cifar10_model_original.pt`.  We compare it to the new version we trained from scratch called `cifar10_model.pt`.
 
+Here is a command to train the Galaxy Zoo data set that uses some more advanced options.  It specifies using an XArray type data set that is located in darts/data/galaxy-zoo-cleaned.  The XArray data files in this directory are galaxy_train.nc and galaxy_test.nc.  It also uses the L1 regularization term on the architecture weights only (not the regular model parameters!) to encourage sparsity in the learned architecture:
+
+``$ python ./cnn/train_search.py --data ./data --folder_name galaxy-zoo-cleaned --use_xarray --dataset galaxy-zoo --L1_lambda 0.01 --batch_size 8 --gpu 1``
+
 ## Testing Model Performance
 
 After the trained models are copied into the `models` directory, we can use `test.py` to test their performance on held out test data.  Usually we have a pretty good idea of what the performance will be by looking at the validation performance on the last epoch of training, but of course there is no substitute for a held out test set.  Here is the command to test the original model the authors built for CIFAR-10:
