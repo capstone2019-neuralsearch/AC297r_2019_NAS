@@ -112,6 +112,10 @@ Here is a command to train the Galaxy Zoo data set that uses some more advanced 
 
 ``$ python ./cnn/train_search.py --data ./data --folder_name galaxy-zoo-cleaned --use_xarray --dataset galaxy-zoo --L1_lambda 0.01 --batch_size 8 --gpu 1``
 
+Her is a command to train the Chest X-Ray data set.  It is similar to the Galaxy Zoo training in that it uses XArray data.
+
+`` python ./cnn/train_search.py --data ./data --folder_name chest-xray --use_xarray --dataset chest-xray --gpu 0 --batch_size 4``
+
 ## Testing Model Performance
 
 After the trained models are copied into the `models` directory, we can use `test.py` to test their performance on held out test data.  Usually we have a pretty good idea of what the performance will be by looking at the validation performance on the last epoch of training, but of course there is no substitute for a held out test set.  Here is the command to test the original model the authors built for CIFAR-10:
