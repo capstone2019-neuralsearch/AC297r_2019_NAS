@@ -1,0 +1,4 @@
+2019-12-05 03:11:20,627 gpu device = 3
+2019-12-05 03:11:20,627 args = Namespace(arch='DATASET', auxiliary=False, auxiliary_weight=0.4, batch_size=40, cutout=False, cutout_length=16, data='../data', dataset='chest-xray', drop_path_prob=0.2, epochs=16, fc1_size=1024, fc2_size=1024, folder_name='chest-xray', gpu=3, grad_clip=5, gz_dtree=False, init_channels=16, layers=8, learning_rate=0.001, model_path='saved_models', momentum=0.9, optimizer='Adam', primitives='Default', random=True, report_freq=50, save='random_eval-chest-xray-EXP-20191205-031120', seed=0, train_portion=0.9, use_xarray=True, weight_decay=1e-06)
+2019-12-05 03:11:27,846 param size = 0.270334MB
+2019-12-05 03:11:27,849 epoch 0 lr 1.000000e-03

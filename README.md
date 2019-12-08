@@ -82,6 +82,14 @@ These searches took approximately 17 hours on a high end NVIDIA RTX 2080 Ti GPU.
 
 There are two outputs with the results of the search in each directory.  The first is PyTorch weights file names weights.pt.  The second is a log called log.txt.  The log includes a history of the training and validation loss on the best cell.  It also periodically prints out a grid with the current "attention" weights on the different possible cells.  Most importantly, it periodically logs a line of Python that can be used to define a genotype in the file genotypes.py.  We will need this in the next step!
 
+Here is a command to train the Galaxy Zoo data set that uses some more advanced options.  It specifies using an XArray type data set that is located in darts/data/galaxy-zoo-cleaned.  The XArray data files in this directory are galaxy_train.nc and galaxy_test.nc.  It also uses the L1 regularization term on the architecture weights only (not the regular model parameters!) to encourage sparsity in the learned architecture:
+
+``$ python ./cnn/train_search.py --data ./data --folder_name galaxy-zoo-cleaned --use_xarray --dataset galaxy-zoo --L1_lambda 0.01 --batch_size 8 --gpu 1``
+
+Her is a command to train the Chest X-Ray data set.  It is similar to the Galaxy Zoo training in that it uses XArray data.
+
+`` python ./cnn/train_search.py --data ./data --folder_name chest-xray --use_xarray --dataset chest-xray --gpu 0 --batch_size 4``
+
 ## Training a Network with the Discovered Architecture
 
 Once the best architecture is discovered, it needs to be made available for training a full network.  Currently the process for doing this is a bit manual.  Take the MNIST training as an example.  Go into the directory e.g. darts/cnn/search-CIFAR-10-20191004-160833.  In this directory, open up log.txt.  At the very bottom of this file (line 1203) you will see that the final validation accuracy is 99.07%, which is promising.  A few lines up, on line 1181, is the final extract with the genotype.  After the timestamp, this line reads
@@ -108,13 +116,9 @@ The first attempt to train the graphene model uses the default number of layers,
 
 The outputs of this training process are the same as for architecture search.  In the eval directory there will be two output files: a log file called `log.txt` and a PyTorch model weights file called `weights.pt`.  For our project, we created a directory called `models` under the top level directory `darts` (`darts/models`) where we could save all of our trained models.  Copy / paste `models.pt` from the MNIST training to this directory with the file name `mnist_model.pt`.  We download the original model the authors trained on CIFAR-10, and saved it here as `cifar10_model_original.pt`.  We compare it to the new version we trained from scratch called `cifar10_model.pt`.
 
-Here is a command to train the Galaxy Zoo data set that uses some more advanced options.  It specifies using an XArray type data set that is located in darts/data/galaxy-zoo-cleaned.  The XArray data files in this directory are galaxy_train.nc and galaxy_test.nc.  It also uses the L1 regularization term on the architecture weights only (not the regular model parameters!) to encourage sparsity in the learned architecture:
+Here is a command train the chest X-Ray network using X-Array.  This should be run from the directory /darts/cnn, and the data for the chest x rays should be in /darts/data/chest-xray/.
 
-``$ python ./cnn/train_search.py --data ./data --folder_name galaxy-zoo-cleaned --use_xarray --dataset galaxy-zoo --L1_lambda 0.01 --batch_size 8 --gpu 1``
-
-Her is a command to train the Chest X-Ray data set.  It is similar to the Galaxy Zoo training in that it uses XArray data.
-
-`` python ./cnn/train_search.py --data ./data --folder_name chest-xray --use_xarray --dataset chest-xray --gpu 0 --batch_size 4``
+``python train.py --dataset chest-xray --folder chest-xray --use_xarray --arch CHEST_XRAY --layers 8 --init_channels 16 --batch_size 64 --gpu 1``
 
 ## Testing Model Performance
 

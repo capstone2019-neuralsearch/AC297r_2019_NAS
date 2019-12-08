@@ -1,0 +1,4 @@
+2019-12-04 04:13:38,475 gpu device = 1
+2019-12-04 04:13:38,475 args = Namespace(arch='DATASET', auxiliary=False, auxiliary_weight=0.4, batch_size=96, cutout=False, cutout_length=16, data='../data', dataset='graphene', drop_path_prob=0.2, epochs=20, fc1_size=1024, fc2_size=1024, folder_name=None, gpu=1, grad_clip=5, gz_dtree=False, init_channels=36, layers=8, learning_rate=0.002, model_path='saved_models', momentum=0.9, optimizer='Adam', primitives='Default', random=True, report_freq=50, save='random_eval-graphene-EXP-20191204-041338', seed=0, train_portion=0.9, use_xarray=True, weight_decay=1e-06)
+2019-12-04 04:13:41,700 param size = 1.595269MB
+2019-12-04 04:13:41,704 epoch 0 lr 2.000000e-03
